@@ -376,3 +376,29 @@ dot-skill/
 <sub>Made with 🧬 for everyone who wants to distill a person into a skill.</sub>
 
 </div>
+
+# 目录结构说明
+
+本项目整个 repo 就是一个 skill 目录（AgentSkills 标准格式）：
+
+```
+colleague-skill/        ← clone 到 .claude/skills/dot-skill/
+├── SKILL.md            # skill 入口（官方 frontmatter）
+├── prompts/            # 分析和生成的 Prompt 模板
+├── tools/              # Python 工具脚本
+│   ├── install_hermes_skill.py   # Hermes 本地安装器
+│   ├── install_openclaw_skill.py # OpenClaw 本地安装器
+│   ├── install_codex_skill.py    # Codex 本地安装器
+│   ├── install_openclaw_generated_skill.py # OpenClaw 角色 Skill 安装器
+│   ├── install_codex_generated_skill.py    # Codex 角色 Skill 安装器
+│   └── research/                 # celebrity research toolchain
+├── docs/               # 文档（PRD 等）
+│
+└── skills/             # 生成的 dot-skill 产物（.gitignore 排除）
+    └── {slug}/
+        ├── SKILL.md            # 完整 Skill（Persona + Work）
+        ├── work.md             # 仅工作能力
+        ├── persona.md          # 仅人物性格
+        ├── meta.json           # 元数据
+        ├── versions/           # 历史版本
+        └── knowledge/          # 原始材料归档
